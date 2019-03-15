@@ -1,4 +1,4 @@
-let nums = [2,3,88,1,-23, -11];
+let nums = [20,3,88,1,-23, -11];
 
 //double add elements
 // let doubles = [];
@@ -22,15 +22,15 @@ console.log(positives);
 // console.log(negativeNumber);
 
 
-let sum = nums.reduce( (res, n) => res + n, 0);
-console.log(sum);
+let sum = nums.reduce( (res, n) => res + n);
+console.log('sum',sum);
 
 let largest = nums.reduce( (res,n) =>  n > res ? n : res,nums[0]);
 console.log(largest);
 
 let smallestPositive = nums
     .filter( n => n >0)
-    .reduce( (res, n) => n < res ? n : res, nums[0]);
+    .reduce( (res, n) => n < res ? n : res );
 console.log(smallestPositive);
 
 
