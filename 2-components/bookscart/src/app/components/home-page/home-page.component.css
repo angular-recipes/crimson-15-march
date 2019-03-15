@@ -1,0 +1,14 @@
+.title {
+    font-weight: bold;
+}
+.author {
+    font-style: italic;
+}
+.book {
+    padding: 5px;
+    background-color: bisque;
+    margin-bottom: 5px;
+}
+.high {
+    background-color: pink;
+}
