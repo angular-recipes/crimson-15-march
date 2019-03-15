@@ -1,3 +1,4 @@
 <h1>BooksCart</h1>
 
-<app-home-page></app-home-page>
+<button (click)="showBooks = !showBooks">toggle</button>
+<app-home-page *ngIf="showBooks"></app-home-page>

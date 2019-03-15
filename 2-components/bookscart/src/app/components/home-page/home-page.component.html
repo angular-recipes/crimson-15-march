@@ -1,6 +1,23 @@
 <!-- <div *ngIf="books.length == 4">text here</div> -->
 <div [hidden]="books.length == 3">not 4</div>
 
+<div>
+  Title: <input type="text" #titleEl /> <br/>
+  Author: <input type="text" #authorEl /> <br/>
+  Price: <input type="text" #priceEl /> <br/>
+  Rating: <select #ratingEl>
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+</div>
+
+<button (click)="printElements(titleEl, authorEl, priceEl, ratingEl)">
+  print
+</button>
+
 <div *ngFor="let book of books">
   <div 
     class="book" 

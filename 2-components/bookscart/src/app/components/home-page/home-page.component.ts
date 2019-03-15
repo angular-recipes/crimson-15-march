@@ -1,3 +1,4 @@
+import { BookService } from './../../services/book.service';
 import { Book } from './../../models/book';
 import { Component, OnInit } from '@angular/core';
 
@@ -9,33 +10,8 @@ import { Component, OnInit } from '@angular/core';
 export class HomePageComponent implements OnInit {
   books: Book[];
 
-  constructor() { 
-    this.books = [
-      new Book(
-        'The Alchemist',
-        'Paulo Cohelo',
-        23,
-        4
-      ),
-      new Book(
-        'Five point someone',
-        'Chetan Bhagat',
-        33,
-        1
-      ),
-      new Book(
-        'The monk who sold his ferrari',
-        'Robin sharma',
-        13,
-        3
-      ),
-      new Book(
-        'Power of now',
-        'Eckhart tolle',
-        15,
-        5
-      )
-    ];
+  constructor(bookService: BookService) { 
+    this.books = bookService.getBooks();
   }
 
   ngOnInit() {
@@ -49,6 +25,16 @@ export class HomePageComponent implements OnInit {
   rateDown(book: Book) {
     if(book.rating > 1)
       book.rating--;
+  }
+
+  printElements(titleEl, authorEl, priceEl, ratingEl) {
+    let newBook = new Book(
+      titleEl.value,
+      authorEl.value,
+      +priceEl.value,
+      +ratingEl.value,
+    );
+    this.books.unshift(newBook);
   }
 
 }
