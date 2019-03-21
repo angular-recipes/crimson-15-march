@@ -22,7 +22,15 @@
   </div>
   <div>
     Price:
-    <input type="number" name="price" [(ngModel)]="newBook.price" />
+    <input #price="ngModel" type="string" name="price" [(ngModel)]="newBook.price" positiveNumber lessThan="100"/>
+    <div *ngIf="price.invalid && (price.touched || price.dirty)">
+      <div *ngIf="price.errors.positiveNumber" class="error">
+        Only positive numbers are allowed.
+      </div>
+      <div *ngIf="price.errors.lessThan" class="error">
+        Price has to be less than 100.
+      </div>
+    </div>
   </div>
   <div>
     Rating:

@@ -10,6 +10,8 @@ import { ContactComponent } from './components/contact/contact.component';
 import { BookDetailsPageComponent } from './components/book-details-page/book-details-page.component';
 import { HighlightDirective } from './directives/highlight.directive';
 import { AddBookPageComponent } from './components/add-book-page/add-book-page.component';
+import { PositiveNumberDirective } from './directives/positive-number.directive';
+import { LessThanDirective } from './directives/less-than.directive';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { AddBookPageComponent } from './components/add-book-page/add-book-page.c
     ContactComponent,
     BookDetailsPageComponent,
     HighlightDirective,
-    AddBookPageComponent
+    AddBookPageComponent,
+    PositiveNumberDirective,
+    LessThanDirective
   ],
   imports: [
     BrowserModule,
