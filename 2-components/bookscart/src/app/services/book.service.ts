@@ -52,4 +52,8 @@ export class BookService {
   addBook(book: Book) {
     this.books.unshift(book);
   }
+
+  getBookById(id: number) : Book{
+    return this.books[id-1];
+  }
  }

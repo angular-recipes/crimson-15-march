@@ -18,13 +18,13 @@
   print
 </button>
 
-<div *ngFor="let book of books">
+<div *ngFor="let book of books; let i=index">
   <div 
     class="book" 
     *ngIf="book.rating != 1"
     [class.high]="book.rating == 5"
   >
-    <div class="title">{{book.title}}</div>
+    <a routerLink="/book/{{i+1}}" class="title">{{book.title}}</a>
     <div class="author">{{book.author}}</div>
     <div>{{book.price}}</div>
     <div>{{book.rating}}</div>
