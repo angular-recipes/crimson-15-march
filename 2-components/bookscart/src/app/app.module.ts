@@ -7,6 +7,7 @@ import { HomePageComponent } from './components/home-page/home-page.component';
 import { AboutComponent } from './components/about/about.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { BookDetailsPageComponent } from './components/book-details-page/book-details-page.component';
+import { HighlightDirective } from './directives/highlight.directive';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { BookDetailsPageComponent } from './components/book-details-page/book-de
     HomePageComponent,
     AboutComponent,
     ContactComponent,
-    BookDetailsPageComponent
+    BookDetailsPageComponent,
+    HighlightDirective
   ],
   imports: [
     BrowserModule,

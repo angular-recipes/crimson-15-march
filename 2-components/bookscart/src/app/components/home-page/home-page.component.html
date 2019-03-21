@@ -25,7 +25,7 @@
     [class.high]="book.rating == 5"
   >
     <a routerLink="/book/{{i+1}}" class="title">{{book.title}}</a>
-    <div class="author">{{book.author}}</div>
+    <div [highlight]="'green'" class="author">{{book.author}}</div>
     <div>{{book.price}}</div>
     <div>{{book.rating}}</div>
     <div>
