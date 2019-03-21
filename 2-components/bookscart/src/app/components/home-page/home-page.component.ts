@@ -9,32 +9,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomePageComponent implements OnInit {
   books: Book[];
+  //bookService: BookService;
 
-  constructor(bookService: BookService) { 
-    this.books = bookService.getBooks();
+  constructor(private bookService: BookService) {
+    //this.bookService = bookService; 
   }
 
   ngOnInit() {
+    this.books = this.bookService.getBooks();
   }
 
   rateUp(book: Book) {
-    if(book.rating < 5)
-      book.rating++;
+    this.bookService.rateUp(book);
   }
 
   rateDown(book: Book) {
-    if(book.rating > 1)
-      book.rating--;
+    this.bookService.rateDown(book);
   }
 
-  printElements(titleEl, authorEl, priceEl, ratingEl) {
+  addBook(titleEl, authorEl, priceEl, ratingEl) {
     let newBook = new Book(
       titleEl.value,
       authorEl.value,
       +priceEl.value,
       +ratingEl.value,
     );
-    this.books.unshift(newBook);
+    this.bookService.addBook(newBook);
   }
 
 }

@@ -38,4 +38,18 @@ export class BookService {
   getBooks() {
     return this.books;
   }
+
+  rateUp(book: Book) {
+    if(book.rating < 5)
+    book.rating++;
+  }
+
+  rateDown(book: Book) {
+    if(book.rating > 1)
+    book.rating--;
+  }
+
+  addBook(book: Book) {
+    this.books.unshift(book);
+  }
  }
