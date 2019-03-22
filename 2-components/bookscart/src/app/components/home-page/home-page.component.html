@@ -18,16 +18,20 @@
   print
 </button> -->
 {{ today | date:'dd//MMM//yyyy' }}
-
+<br/>
 <input 
   type="text" 
   #searchText 
   (input)="search(searchText.value)"
+  placeholder="Search"
 />
 
 <div class="search-results">
   <div *ngFor="let book of searchResults">
     <a routerLink="/book/{{book.id}}">{{book.title}}</a>
+    <br/>
+    {{book.author}}
+    <hr/>
   </div>
 </div>
 
