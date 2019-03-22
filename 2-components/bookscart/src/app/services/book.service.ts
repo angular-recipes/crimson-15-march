@@ -1,59 +1,40 @@
 import { Book } from './../models/book';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class BookService {
   private books: Book[];
-  constructor() { 
-    this.books = [
-      new Book(
-        'The Alchemist',
-        'Paulo Cohelo',
-        23,
-        4
-      ),
-      new Book(
-        'Five point someone',
-        'Chetan Bhagat',
-        33,
-        1
-      ),
-      new Book(
-        'The monk who sold his ferrari',
-        'Robin sharma',
-        13,
-        3
-      ),
-      new Book(
-        'Power of now',
-        'Eckhart tolle',
-        15,
-        5
-      )
-    ];
+  private url = 'http://localhost:3000/books/';
+
+  constructor(private http: HttpClient) {
   }
 
-  getBooks() {
-    return this.books;
+  getBooks(): Observable<Book[]> {
+    return this.http.get<Book[]>(this.url);
   }
 
   rateUp(book: Book) {
-    if(book.rating < 5)
-    book.rating++;
+    if (book.rating < 5)
+      book.rating++;
+    return this.http.put(this.url + book.id, book);
   }
 
   rateDown(book: Book) {
-    if(book.rating > 1)
-    book.rating--;
+    if (book.rating > 1)
+      book.rating--;
+    return this.http.put(this.url + book.id, book);
   }
 
-  addBook(book: Book) {
-    this.books.unshift(book);
+  addBook(book: Book) : Observable<Book> {
+    return this.http.post<Book>(this.url, book);
   }
 
-  getBookById(id: number) : Book{
-    return this.books[id-1];
+  getBookById(id: number): Book {
+    return this.books[id - 1];
   }
- }
+}

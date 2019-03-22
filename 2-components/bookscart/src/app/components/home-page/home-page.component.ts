@@ -1,7 +1,7 @@
+import { Observable } from 'rxjs';
 import { BookService } from './../../services/book.service';
 import { Book } from './../../models/book';
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-home-page',
@@ -10,12 +10,12 @@ import { HttpClient } from '@angular/common/http';
 })
 export class HomePageComponent implements OnInit {
   books: Book[];
+  books$: Observable<Book[]>; 
   today = new Date();
   //bookService: BookService;
 
   constructor(
-    private bookService: BookService,
-    private http: HttpClient
+    private bookService: BookService
   ) {
     //this.bookService = bookService; 
   }
@@ -26,16 +26,18 @@ export class HomePageComponent implements OnInit {
     // beCallObservable.subscribe(observer);
     // console.log('at last line');
     
-    this.http.get<Book[]>('http://localhost:3000/books')
+    // this.books$ = this.bookService.getBooks();
+    this.bookService
+      .getBooks()
       .subscribe(res => this.books = res);
   }
 
   rateUp(book: Book) {
-    this.bookService.rateUp(book);
+    this.bookService.rateUp(book).subscribe();
   }
 
   rateDown(book: Book) {
-    this.bookService.rateDown(book);
+    this.bookService.rateDown(book).subscribe();
   }
 
   addBook(titleEl, authorEl, priceEl, ratingEl) {

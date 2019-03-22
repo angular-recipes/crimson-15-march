@@ -1,25 +1,32 @@
 {
-    "books": [
-        {
-            "id": 1,
-            "title": "The Alchemist",
-            "author": "Paulo Cohelo",
-            "price": 34,
-            "rating": 4
-        },
-        {
-            "id": 2,
-            "title": "Five point some",
-            "author": "Chetan Bhagat",
-            "price": 14,
-            "rating": 2
-        },
-        {
-            "id": 3,
-            "title": "The monk who sold his ferrari",
-            "author": "Robin Sharma",
-            "price": 23,
-            "rating": 3
-        }
-    ]   
+  "books": [
+    {
+      "id": 1,
+      "title": "The Alchemist",
+      "author": "Paulo Cohelo",
+      "price": 34,
+      "rating": 3
+    },
+    {
+      "id": 2,
+      "title": "Five point some",
+      "author": "Chetan Bhagat",
+      "price": 14,
+      "rating": 5
+    },
+    {
+      "id": 3,
+      "title": "The monk who sold his ferrari",
+      "author": "Robin Sharma",
+      "price": 23,
+      "rating": 3
+    },
+    {
+      "title": "Power of now",
+      "author": "Eckhart Tolle",
+      "price": 23,
+      "rating": 4,
+      "id": 4
+    }
+  ]
 }
