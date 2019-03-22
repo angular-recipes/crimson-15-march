@@ -14,6 +14,7 @@ import { AddBookPageComponent } from './components/add-book-page/add-book-page.c
 import { PositiveNumberDirective } from './directives/positive-number.directive';
 import { LessThanDirective } from './directives/less-than.directive';
 import { StarsPipe } from './pipes/stars.pipe';
+import { BookItemComponent } from './components/book-item/book-item.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { StarsPipe } from './pipes/stars.pipe';
     AddBookPageComponent,
     PositiveNumberDirective,
     LessThanDirective,
-    StarsPipe
+    StarsPipe,
+    BookItemComponent
   ],
   imports: [
     BrowserModule,

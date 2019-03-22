@@ -1,6 +1,10 @@
 <div *ngIf="book">
-    <h2>{{book.title}}</h2>
-    <h3><i>{{book.author}}</i></h3>
+    <app-book-item 
+        [book]="book"
+        [hideButtons]="true"
+        [showTitleAsText]="true"
+    >
+    </app-book-item>
 </div>
 <!-- <a routerLink="/home">Go back home</a> -->
 

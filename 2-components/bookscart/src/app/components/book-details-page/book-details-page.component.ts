@@ -10,6 +10,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class BookDetailsPageComponent implements OnInit {
   book: Book;
+
   constructor(
     private route: ActivatedRoute, 
     private bookService: BookService,

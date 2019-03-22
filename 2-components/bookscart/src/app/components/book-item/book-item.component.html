@@ -1,0 +1,19 @@
+<div 
+class="book" 
+[class.high]="book.rating == 5"
+>
+<a *ngIf="!showTitleAsText" routerLink="/book/{{book.id}}" class="title">
+  {{book.title | titlecase}}
+</a>
+<div *ngIf="showTitleAsText">
+    <b>{{book.title | titlecase}}</b>
+</div>
+<div [highlight]="'green'" class="author">{{book.author}}</div>
+<div>{{book.price | currency:'EUR'}}</div>
+<!-- <div>{{book.rating | number:'1.2-3'}}</div> -->
+<div>{{book.rating | stars:'@'}}</div>
+<div *ngIf="!hideButtons">
+  <button (click)="handleRateUpBtnClick(book)">&uarr;</button>
+  <button (click)="handleRateDownBtnClick(book)">&darr;</button>
+</div>
+</div>

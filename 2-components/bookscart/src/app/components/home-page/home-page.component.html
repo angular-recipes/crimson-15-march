@@ -35,21 +35,11 @@
   </div>
 </div>
 
-<div *ngFor="let book of books; let i=index">
-  <div 
-    class="book" 
-    [class.high]="book.rating == 5"
+<div *ngFor="let b of books">
+  <app-book-item 
+    [book]="b"
+    (rateUpBtnClick)="rateUp($event)"
+    (rateDownBtnClick)="rateDown($event)"
   >
-    <a routerLink="/book/{{i+1}}" class="title">
-      {{book.title | slice:1 | uppercase}}
-    </a>
-    <div [highlight]="'green'" class="author">{{book.author}}</div>
-    <div>{{book.price | currency:'EUR'}}</div>
-    <!-- <div>{{book.rating | number:'1.2-3'}}</div> -->
-    <div>{{book.rating | stars:'@'}}</div>
-    <div>
-      <button (click)="rateUp(book)">&uarr;</button>
-      <button (click)="rateDown(book)">&darr;</button>
-    </div>
-  </div>
+  </app-book-item>
 </div>
