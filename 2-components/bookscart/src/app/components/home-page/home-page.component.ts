@@ -21,8 +21,12 @@ export class HomePageComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.http
-      .get('http://localhost:3000/books')
+    // let beCallObservable = this.http.get('http://localhost:3000/books');
+    // let observer = (res) => this.books = res;
+    // beCallObservable.subscribe(observer);
+    // console.log('at last line');
+    
+    this.http.get<Book[]>('http://localhost:3000/books')
       .subscribe(res => this.books = res);
   }
 
