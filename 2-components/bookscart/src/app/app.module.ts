@@ -12,6 +12,7 @@ import { HighlightDirective } from './directives/highlight.directive';
 import { AddBookPageComponent } from './components/add-book-page/add-book-page.component';
 import { PositiveNumberDirective } from './directives/positive-number.directive';
 import { LessThanDirective } from './directives/less-than.directive';
+import { StarsPipe } from './pipes/stars.pipe';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { LessThanDirective } from './directives/less-than.directive';
     HighlightDirective,
     AddBookPageComponent,
     PositiveNumberDirective,
-    LessThanDirective
+    LessThanDirective,
+    StarsPipe
   ],
   imports: [
     BrowserModule,

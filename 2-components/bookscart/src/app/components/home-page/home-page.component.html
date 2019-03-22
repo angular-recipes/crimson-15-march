@@ -17,17 +17,20 @@
 <button (click)="addBook(titleEl, authorEl, priceEl, ratingEl)">
   print
 </button> -->
-
+{{ today | date:'dd//MMM//yyyy' }}
 <div *ngFor="let book of books; let i=index">
   <div 
     class="book" 
     *ngIf="book.rating != 1"
     [class.high]="book.rating == 5"
   >
-    <a routerLink="/book/{{i+1}}" class="title">{{book.title}}</a>
+    <a routerLink="/book/{{i+1}}" class="title">
+      {{book.title | slice:1 | uppercase}}
+    </a>
     <div [highlight]="'green'" class="author">{{book.author}}</div>
-    <div>{{book.price}}</div>
-    <div>{{book.rating}}</div>
+    <div>{{book.price | currency:'EUR'}}</div>
+    <!-- <div>{{book.rating | number:'1.2-3'}}</div> -->
+    <div>{{book.rating | stars:'@'}}</div>
     <div>
       <button (click)="rateUp(book)">&uarr;</button>
       <button (click)="rateDown(book)">&darr;</button>
