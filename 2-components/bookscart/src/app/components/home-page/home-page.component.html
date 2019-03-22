@@ -18,10 +18,22 @@
   print
 </button> -->
 {{ today | date:'dd//MMM//yyyy' }}
+
+<input 
+  type="text" 
+  #searchText 
+  (input)="search(searchText.value)"
+/>
+
+<div class="search-results">
+  <div *ngFor="let book of searchResults">
+    <a routerLink="/book/{{book.id}}">{{book.title}}</a>
+  </div>
+</div>
+
 <div *ngFor="let book of books; let i=index">
   <div 
     class="book" 
-    *ngIf="book.rating != 1"
     [class.high]="book.rating == 5"
   >
     <a routerLink="/book/{{i+1}}" class="title">

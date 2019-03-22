@@ -24,8 +24,7 @@ export class AddBookPageComponent implements OnInit {
     this.newBook.rating = +this.newBook.rating;
     this.bookService
       .addBook(this.newBook)
-      .subscribe(() => this.router.navigate(['/home']));
-    
+      .subscribe(() => this.router.navigate(['/home']));   
   }
 
 }

@@ -12,6 +12,7 @@ export class HomePageComponent implements OnInit {
   books: Book[];
   books$: Observable<Book[]>; 
   today = new Date();
+  searchResults: Book[];
   //bookService: BookService;
 
   constructor(
@@ -34,6 +35,12 @@ export class HomePageComponent implements OnInit {
 
   rateUp(book: Book) {
     this.bookService.rateUp(book).subscribe();
+  }
+
+  search(text) {
+    this.bookService
+      .search(text)
+      .subscribe(res => this.searchResults = res);
   }
 
   rateDown(book: Book) {

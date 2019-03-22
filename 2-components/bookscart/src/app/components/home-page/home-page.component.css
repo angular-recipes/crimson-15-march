@@ -12,3 +12,8 @@
 .high {
     background-color: pink;
 }
+.search-results {
+    position: absolute;
+    background-color: white;
+    padding: 5px;
+}
