@@ -16,7 +16,11 @@ export class BookService {
 
   getBooks(): Observable<Book[]> {
     return this.http
-      .get<Book[]>(this.url)
+      .get<Book[]>(this.url, {
+        headers: {
+          'token': 'xyz'
+        }
+      })
       .pipe(
         map(books => books.concat(new Book('Test', 'Test', 1, 1))),
         tap( books => console.log(books))
